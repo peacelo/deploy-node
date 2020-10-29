@@ -16,7 +16,7 @@ app.get('/', (req, res)=>{
         },
         mode:"no-cors",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    }).then(res => console.log(res.json())).then(data => console.log(data)).catch(err => console.log(err))
+    }).then( res => res.json()).then(data => res.send(data)).catch(err=> res.send(err))
 
 });
 
