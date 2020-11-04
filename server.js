@@ -16,10 +16,11 @@ app.use(bodyParser.json());
 app.post('/', (req, res)=>{
     console.log(req.body.action);
     res.send(req.body);
+    console.log('hello')
 })
 
 app.get('/', (req, res)=>{
-res.send('Hello')
+res.send('Hello word pola')
 })
 
 app.listen(process.env.PORT || 3000, ()=>{
