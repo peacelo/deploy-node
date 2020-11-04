@@ -13,23 +13,29 @@ const APIToken = 'f0a48555f471168e3ed7d553ac0462c834b947fa2ac86c28f0f744b5f5e683
 const url = `https://api.trello.com/1/tokens/${APIToken}/webhooks/?key=${APIKey}`;
 
 app.get('/', (req, res)=>{
-    
-    fetch(url, {
-        
-        method: 'POST',
-        body: {
+
+    (async () => {
+
+        const body = {
             "description": "My first webhook",
             "callbackURL": "https://deploy-example123.herokuapp.com/api",
             "idModel": "RLIihjSy"
-        },
-        mode:"no-cors",
-        headers: {'Content-Type':'application/json'},
-    }).then( res => res.json()).catch(err=> res.send(err))
+        }
+    
+        const response = await fetch(url, {
+            method: 'post',
+            body: JSON.stringify(body),
+            headers: {'Content-Type': 'application/json'}
+        });
+        const json = await response.json();
+    
+        console.log(json);
+    })();
 
 });
 
 app.get('/api', (req, res)=>{
-    res.send(req);
+    res.send(req.body);
 });
 
 app.listen(process.env.PORT || 3000, ()=>{
