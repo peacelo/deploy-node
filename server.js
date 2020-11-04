@@ -29,7 +29,7 @@ app.get('/', (req, res)=>{
         });
         const json = await response.json();
     
-        console.log(json);
+        res.send(json)
     })();
 
 });
