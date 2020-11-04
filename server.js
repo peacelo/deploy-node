@@ -12,9 +12,7 @@ const APIToken = 'f0a48555f471168e3ed7d553ac0462c834b947fa2ac86c28f0f744b5f5e683
 
 const url = `https://api.trello.com/1/tokens/${APIToken}/webhooks/?key=${APIKey}`;
 
-app.get('/', (req, res)=>{
-
-    (async () => {
+app.get('/', async (req, res)=>{
 
         const body = {
             "description": "My first webhook",
@@ -30,7 +28,6 @@ app.get('/', (req, res)=>{
         const json = await response.json();
     
         res.send(json)
-    })();
 
 });
 
