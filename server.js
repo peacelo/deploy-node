@@ -11,6 +11,9 @@ app.get('/',(req, res)=>{
         res.send(req.body)
 
 });
+app.post('/', (req, res)=>{
+    console.log(req.body);
+})
 
 app.get('/api', (req, res)=>{
     res.send(req.body);
