@@ -1,22 +1,26 @@
 const express = require('express');
 const cors = require('cors');
 
+const bodyParser = require("body-parser");
+
 const app = express();
+
 app.use(express.json());
 app.use(cors('*'));
 
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 app.post('/', (req, res)=>{
-    res.json(req.body);
-});
+    console.log(req.body);
+    res.send(req.body);
+})
 
 app.get('/', (req, res)=>{
-res.send('Servidor Hodando no Heroku')
-});
-
-
+res.send('Hello')
+})
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log('servidor rodfwedqwdwqwfwefando!')
