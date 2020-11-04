@@ -24,14 +24,12 @@ app.get('/', (req, res)=>{
         }),
         mode:"no-cors",
         headers: {'Content-Type':'application/json'},
-    }).then( res => res.json()).then(data => res.send(data)).catch(err=> res.send(err))
+    }).then( res => res.json()).catch(err=> res.send(err))
 
 });
 
 app.get('/api', (req, res)=>{
-    const error = req;
-    console.log(error);
-    console.log(res)
+    res.send(req);
 });
 
 app.listen(process.env.PORT || 3000, ()=>{
