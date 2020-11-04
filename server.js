@@ -23,7 +23,7 @@ app.get('/', (req, res)=>{
             idModel: "RLIihjSy"
         }),
         mode:"no-cors",
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        headers: {'Content-Type':'application/json'},
     }).then( res => res.json()).then(data => res.send(data)).catch(err=> res.send(err))
 
 });
