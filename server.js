@@ -18,9 +18,9 @@ app.get('/', (req, res)=>{
         
         method: 'POST',
         body: {
-            description: "My first webhook",
-            callbackURL: "https://deploy-example123.herokuapp.com/api",
-            idModel: "RLIihjSy"
+            "description": "My first webhook",
+            "callbackURL": "https://deploy-example123.herokuapp.com/api",
+            "idModel": "RLIihjSy"
         },
         mode:"no-cors",
         headers: {'Content-Type':'application/json'},
