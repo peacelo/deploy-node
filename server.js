@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 
 app.post('/', (req, res)=>{
-    console.log(req.body.actions);
+    console.log(req.body.action);
     res.send(req.body);
 })
 
