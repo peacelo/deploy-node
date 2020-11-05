@@ -12,11 +12,6 @@ app.use(express.json());
 app.use(cors('*'));
 
 
-const getApiSocket = socket =>{
-    const response = new Date();
-    
-
-}
 
 server.listen(process.env.PORT || 3000, ()=>{
     console.log('servidor rodando!')
@@ -26,18 +21,16 @@ server.listen(process.env.PORT || 3000, ()=>{
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+io.on('connection', socket=>{
 
-app.post('/', (req, res)=>{
-    console.log(req.body.action);
-    res.send(req.body);
-    console.log('testando API');
+    console.log('new Client');
 
-    io.on('connection', socket=>{
-        console.log('new socket');
-        
-        socket.emit('FromApi', req.body.action);
+    app.post('/', (req, res)=>{
+        socket.emit('FromApi',req.body);
+        res.end();
     })
-})
+});
+
 
 app.get('/', (req, res)=>{
 res.send('Hello word pola')
