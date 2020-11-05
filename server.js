@@ -21,16 +21,37 @@ server.listen(process.env.PORT || 3000, ()=>{
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-io.on('connection', socket=>{
+// io.on('connection', socket=>{
 
-    console.log('new Client');
+//     console.log('new Client');
 
-    app.post('/', (req, res)=>{
-        console.log(req.body)
-        socket.emit('FromApi',req.body);
-        res.end();
-    })
-});
+//     app.post('/', (req, res)=>{
+//         console.log(req.body)
+//         socket.emit('FromApi',req.body);
+//         res.end();
+//     })
+// });
+
+
+io.on("connection", (socket) => {
+    console.log("New client connected");
+    if (interval) {
+      clearInterval(interval);
+    }
+    interval = setInterval(() => getApiAndEmit(socket), 1000);
+    socket.on("disconnect", () => {
+      console.log("Client disconnected");
+      clearInterval(interval);
+    });
+  });
+  
+  const getApiAndEmit = socket => {
+    const response = new Date();
+    // Emitting a new message. Will be consumed by the client
+    socket.emit("FromAPI", response);
+  };
+
+
 
 
 app.get('/', (req, res)=>{
