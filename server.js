@@ -26,6 +26,7 @@ io.on('connection', socket=>{
     console.log('new Client');
 
     app.post('/', (req, res)=>{
+        console.log(req.body)
         socket.emit('FromApi',req.body);
         res.end();
     })
