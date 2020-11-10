@@ -1,11 +1,11 @@
-import { Router } from 'express';
+const { Router } = require('express');
 
 
-import CardMateriasController from './src/controllers/CardMateriasController';
+const CardMateriasController = require('./src/controllers/CardMateriasController');
 
 const routes = Router();
 
 routes.get('/cards', CardMateriasController.getCards);
 routes.get('/cardsAttachments', CardMateriasController.getCardAttachment);
 
-export default routes;
+module.exports = routes;

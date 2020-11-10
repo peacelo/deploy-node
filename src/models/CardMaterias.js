@@ -15,4 +15,4 @@ class CardMaterias {
     }
 }
 
-export default CardMaterias;
+module.exports = CardMaterias;

@@ -1,18 +1,20 @@
-import express from 'express';
+const express = require('express');
+
 const app = express();
 
-import http from 'http';
+const http = require('http');
 
 const server = http.createServer(app);
 
-import socketIo from 'socket.io';
-const io = socketIo(server);
 
-import 'dotenv/config';
+const io = require('socket.io')(server);
 
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import routes from './routes'
+require('dotenv/config')
+
+const cors =  require('cors') 
+
+const bodyParser = require('body-parser'); 
+const routes = require('./routes') 
 
 app.use(express.json());
 app.use(cors());
