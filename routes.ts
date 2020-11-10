@@ -1,6 +1,7 @@
-const { Router } = require('express');
+import { Router } from 'express';
 
-const CardMateriasController = require('./controllers/CardMateriasController');
+
+import CardMateriasController from './src/controllers/CardMateriasController';
 
 const routes = Router();
 

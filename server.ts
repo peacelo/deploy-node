@@ -5,8 +5,8 @@ import http from 'http';
 
 const server = http.createServer(app);
 
-import io from 'socket.io';
-io(server);
+import socketIo from 'socket.io';
+const io = socketIo(server);
 
 import 'dotenv/config';
 
@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(routes)
 
-io.on('connection', socket=>{
+io.on('connection', socket =>{
 
     console.log('new Client');
 

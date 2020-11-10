@@ -11,11 +11,8 @@ class CardMaterias {
 
 
     get(){
-        if(this.cardMateria.name.match('EXECUTIVO'))
-            return this.card;
-        else
-            return;
+        
     }
 }
 
-module.exports = CardMaterias;
+export default CardMaterias;
